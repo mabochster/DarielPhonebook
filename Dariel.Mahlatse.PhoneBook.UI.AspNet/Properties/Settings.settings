@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Dariel.Mahlatse.PhoneBook.UI.AspNet.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="PhoneBookApiUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://localhost.fiddler:62659/api</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

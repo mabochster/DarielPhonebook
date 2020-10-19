@@ -1,0 +1,51 @@
+﻿@model Dariel.Mahlatse.PhoneBook.UI.AspNet.Models.PhonebookEntryViewModel
+
+@{
+    ViewBag.Title = "EditPhonebookEntry";
+}
+
+<h2>EditPhonebookEntry</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Edit @Model.PhoneBook.Name : @(Model.Entry.Id > 0 ? $"{Model.Entry.Name}'s details":"Create new entry")</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Entry.Id)
+    @Html.HiddenFor(model => model.Entry.PhoneBookId)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Entry.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Entry.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Entry.Name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Entry.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Entry.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Entry.PhoneNumber, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "editPhoneBook",new { id= Model.Entry.PhoneBookId})
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

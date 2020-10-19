@@ -1,0 +1,26 @@
+﻿@model Dariel.Mahlatse.Phonebook.Core.Models.SearchResult
+
+
+
+@if (Model != null)
+{
+    if (Model.PhoneBooks != null && Model.PhoneBooks.Count() > 0)
+    {
+        <p>Phone Books  @(Model.PhoneBooks.Count()) record(s)</p>
+
+        foreach (var phoneBook in Model.PhoneBooks)
+        {
+            <a href="@Url.Action("EditPhonebook",new { id= phoneBook.Id})">@phoneBook.Name</a>
+        }
+    }
+
+    if (Model.Entries != null && Model.Entries.Count() > 0)
+    {
+        <p>Phone Books Entry  @(Model.Entries.Count()) record(s)</p>
+
+        foreach (var entry in Model.Entries)
+        {
+            <a href="@Url.Action("EditPhonebookEntry",new { entryId= entry.Id,phonebookId=entry.PhoneBookId})">@entry.Name - @entry.PhoneNumber</a>
+        }
+    }
+}
